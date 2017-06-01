@@ -1,0 +1,15 @@
+<div class="container">
+  <% @todolist.each do |todolist| %>
+  <div class="panel panel-info">
+        <div class="panel-heading"><%= link_to "#{todolist.title}", todo_list_path(todolist.id) %></div>
+
+
+        <div class="panel-body">
+
+          <%= todolist.description %>
+
+        </div>
+  </div>
+  <% end %>
+  <%= link_to 'New Todo List', new_todo_list_path %>
+</div>

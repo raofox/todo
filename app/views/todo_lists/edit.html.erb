@@ -1,0 +1,11 @@
+<div class="container">
+
+  <div class="panel panel-info">
+    <div class="panel-heading">MAKE CHANGES TO YOUR LIST</div>
+    <div class="panel-body">
+      <%= form_for @todolist, url: {action: "update"} do |form| %>
+      <%= render partial: '/todo_lists/form', object: form %>
+      <% end %>
+    </div>
+   </div>
+</div>
