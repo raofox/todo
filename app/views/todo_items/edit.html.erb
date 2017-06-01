@@ -1,0 +1,4 @@
+<h2>EDIT ITEM</h2>
+<%= form_for @todoitem, url: {action: "update"} do |form| %>
+<%= render partial: '/todo_items/form', object: form %>
+<% end %>

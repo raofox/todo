@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Todo</title>
+    <title>TODO</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,26 @@
   </head>
 
   <body>
+
+
+    <% if current_user %>
+      Signed in as <%= current_user.fullname %> | <%= link_to "Logout", '/logout' %>
+    <% elsif @user %>
+      Signed in with <%= @user.email %> account
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> |  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    <% end %>
+
+
+
+
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
