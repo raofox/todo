@@ -1,14 +1,14 @@
 class TodoItemsController < ApplicationController
-  before_action :authorize, only: [:create, :destroy]
+  before_action :authorize, only: [:show, :create, :destroy]
 
 
   # def index
   #   @todoitem = current_user.todo_lists.todo_items.all
   # end
   #
-  # def show
-  #   @todoitem = @todolist.todo_items.find(params[:todo_list_id])
-  # end
+  def show
+    redirect_to todo_list_path(id: params[:todo_list_id], todoitem_id: params[:id])
+  end
   #
   # def new
   #   @todoitem = TodoItem.new
@@ -46,7 +46,7 @@ class TodoItemsController < ApplicationController
 
   private
   def todoitem_params
-      params.require(:todo_item).permit(:item)
+      params.require(:todo_item).permit(:item, :remove_photos, { :photos => []})
   end
 
 end

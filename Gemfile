@@ -36,6 +36,13 @@ gem "omniauth"
 gem "omniauth-facebook"
 # Use figaro gem configuration using ENV and a single YAML file (privacy protection)
 gem "figaro"
+# Use for image upload
+gem 'carrierwave'
+gem "mini_magick"
+gem "fog"
+# Use for full text search 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

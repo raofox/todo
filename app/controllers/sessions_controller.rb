@@ -32,11 +32,13 @@ class SessionsController < ApplicationController
         user = authentication.user
         authentication.update_token(auth_hash)
         flash[:success] = "Signed In Successfully"
+        session[:user_id] = user.id
         redirect_to todo_lists_path
       else
         user = User.create_with_auth_and_hash(authentication, auth_hash)
         # @next = edit_user_path(user)
         flash[:info] = "#{user.fullname} is now a new user"
+        session[:user_id] = user.id
         redirect_to todo_lists_path
       end
 
