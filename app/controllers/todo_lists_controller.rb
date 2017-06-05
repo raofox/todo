@@ -3,13 +3,15 @@ class TodoListsController < ApplicationController
 
 
   def index
-    @todolist = current_user.todo_lists.all
+    @todolists = current_user.todo_lists.all
   end
 
   def show
+    
     @todolist = current_user.todo_lists.find(params[:id])
     @todoitem = TodoItem.new
-    @todoitem = @todolist.todo_items
+    @todoitems = @todolist.todo_items
+
   end
 
   def new

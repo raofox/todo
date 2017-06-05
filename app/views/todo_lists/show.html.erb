@@ -13,16 +13,27 @@
           <%= @todolist.description %>
 
           <ul>
-          <% @todoitem.each do |todo| %>
-          <li><%= todo.item %> | <%= link_to 'Remove', todo_list_todo_item_path(@todolist, todo.id ), data: {:confirm => "Are you sure?"}, :method => :delete %></li>
+          <% @todoitems.each do |todo| %>
+
+          <li><%= todo.item %>
+
+
+
+          |  <%= link_to 'Remove', todo_list_todo_item_path(@todolist, todo.id ), data: {:confirm => "Are you sure?"}, :method => :delete %></li>
           <% end %>
           <ul>
+
+            
+
+
 
 
         </div>
   </div>
   <div>
-    <%= form_for ([@todolist, TodoItem.new]) do |form| %>
+    <%= form_for ([@todolist, @todoitem]) do |form| %>
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %>
     <%= form.text_field :item %>
     <%= form.submit %>
     <% end %>
